@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie{% endblock %}
+
+{# {% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/categorie.css') }}" />
+{% endblock %} #}
+
+{% block body %}
+    <div class="categorie-details mt-5 mx-5">
+        <h1>{{ categorie.nom }}</h1>
+        
+        <div class="service">
+            <div class="container">
+                            <div class="row">
+                                {% for produit in categorie.produits %}
+                                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                                    <div class="service-item">
+                                        <div class="service-icon">
+                                            <i class="flaticon-workout"></i>
+                                        </div>
+                                        <a href="{{ path('app_produit_show', {id: produit.id}) }}">
+                                        <h3>{{ produit.libelle }}</h3></a>
+                                        <p>{{ produit.prix }}</p>
+                                        <p>{% if produit.isDisponible %}<span style="color:green; font-weight:600">disponible</span>{% else %}<span style="color:red; font-weight:600">Non disponible</span>{% endif %}</p>
+                                    </div>
+                                </div>
+                                {% else %}
+                                    <li class="empty-list">Liste vide</li>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        </div>
+                </ul>
+            </div>
+        </div>
+{% if is_granted('ROLE_ADMINE') %}
+        <a href="{{ path('categorie_index') }}" class="btn btn-light">Retour</a>
+        {% endif %}
+    </div>
+{% endblock %}

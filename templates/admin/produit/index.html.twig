@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+{% if app.flashes('success') %}
+    <div class="alert alert-success" role="alert">
+        {% for message in app.flashes('success') %}
+            {{ message }}<br>
+        {% endfor %}
+    </div>
+{% endif %}
+
+    <div class="container mb-5" style="margin-top:70px">
+        <h2 class="text-center text-primary mb-4">Bienvenue sur la Page d'Accueil</h2>
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Libelle</th>
+                        <th scope="col">Prix</th>
+                        <th scope="col">Marque</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produit in lesProduits %}
+                        <tr>
+                            <td>
+                            <img src="{{ vich_uploader_asset(produit, 'imageFile') }}" alt="Hero Image" width="100" height:"100">
+                            </td>
+                            <td>{{ produit.libelle }}</td>
+                            <td>{{ produit.prix }} Dt</td>
+                            <td>{{ produit.marque }}</td>
+                            <td>
+                                <a href="{{ path('app_produit_show', {'id': produit.id}) }}" class="btn btn-info">Voir le produit</a>
+                                {# {% if is_granted('ROLE_ADMINE') %} #}
+                                <a href="{{ path('app_produit_edit', {'id': produit.id}) }}" class="btn btn-primary">Modifier produit</a>
+                                {# <a href="{{ path('app_produit_delete', {'id': produit.id}) }}" class="btn btn-danger">Supprimer</a> #}
+                                {# {% endif %} #}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+                {# {% if is_granted('ROLE_ADMINE') %} #}
+                    <a href="{{ path('app_produit_ajouter') }}" class="btn btn-primary">Ajouter produit</a>
+                {# {% endif %} #}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+<section class="vh-100 bg-image" style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');margin-top:30px;margin-bottom:40px">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;margin-top:20px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              {{ form_start(registrationForm) }}
+
+              <div class="form-outline mb-4">
+                {{ form_widget(registrationForm.username, {'attr': {'class': 'form-control form-control-lg'}}) }}
+                {{ form_label(registrationForm.username, 'Your Name', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_errors(registrationForm.username, {'attr': {'class': 'error-message'}}) }}
+              </div>
+
+              <div class="form-outline mb-4">
+                {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control form-control-lg'}}) }}
+                {{ form_label(registrationForm.email, 'Your Email', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_errors(registrationForm.email, {'attr': {'class': 'error-message'}}) }}
+              </div>
+
+              <div class="form-outline mb-4">
+                {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control form-control-lg'}}) }}
+                {{ form_label(registrationForm.plainPassword, 'Password', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_errors(registrationForm.plainPassword, {'attr': {'class': 'error-message'}}) }}
+              </div>
+
+              <div class="form-outline mb-4">
+                {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-control form-control-lg'}}) }}
+                {{ form_label(registrationForm.agreeTerms, 'I agree all statements in', {'label_attr': {'class': 'form-check-label'}}) }}
+                {{ form_errors(registrationForm.agreeTerms, {'attr': {'class': 'error-message'}}) }}
+              </div>
+
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+              </div>
+
+              {{ form_end(registrationForm) }}
+
+              <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{{ path('app_login') }}" class="fw-bold text-body"><u>Login here</u></a></p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .error-message {
+    color: red;
+  }
+</style>
+
+{% endblock %}

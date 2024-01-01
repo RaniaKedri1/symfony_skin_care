@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product Details{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Détails du produit</h1>
+
+        <div class="card mt-4">
+            <img src="/images/hero.png" alt="Hero Image" width=80>
+            <div class="card-body"> 
+                <h5 class="card-title">{{ produit.libelle }}</h5>
+                <p class="card-text">
+                    <strong>Disponible:</strong> {% if produit.isDisponible %}disponible{% else %}Non disponible{% endif %}<br>
+                    <strong>Prix:</strong> {{ produit.prix }} Dt<br>
+                    <strong>Marque:</strong> {{ produit.marque }}
+                </p>
+            </div>
+                {% if is_granted('ROLE_ADMINE') %}
+        <a href="{{ path('app_produit_edit', {id: produit.id}) }}" class="btn btn-light">Edit</a>
+       <a href="{{ path('app_produit_edit', {id: produit.id}) }}" class="btn btn-light">Modifier produit</a>
+               {% endif %}
+        </div>
+{% if is_granted('ROLE_ADMINE') %}
+        <a href="{{ path('listProduit') }}" class="btn btn-light">Retour</a>
+                {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New produit{% endblock %}
+
+{% block body %}
+    <div class="container mb-5">
+        <h1 class="mt-5">Créer nouvelle produit</h1>
+
+        {{ form_start(form, {'attr': {'class': 'mt-4'}}) }}
+
+        <div class="form-group">
+            {{ form_label(form.libelle) }}
+            {{ form_widget(form.libelle, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+    
+        <div class="form-group">
+            {{ form_label(form.isDisponible) }}
+            {{ form_widget(form.isDisponible, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.prix) }}
+            {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.marque) }}
+            {{ form_widget(form.marque, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        {# <div class="form-group">
+            {{ form_label(form.image) }}
+            {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+        </div> #}
+
+        <div class="form-group">
+            {{ form_label(form.Categorie) }}
+            {{ form_widget(form.Categorie, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+    <div class="form-group mt-4">
+        {# {{ form_label(form.imageFile, 'Image', {'label_attr': {'class': 'col-sm-2 control-label'}}) }} #}
+        <div class="col-sm-10">
+            {{ form_widget(form.imageFile) }}
+        </div>
+    </div>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+
+        {{ form_end(form) }}
+
+        <a href="{{ path('app_produit') }}" class="btn btn-secondary mt-3">Back to list</a>
+    </div>
+{% endblock %}

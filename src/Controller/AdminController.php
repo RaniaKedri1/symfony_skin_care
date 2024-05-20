@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Categorie;
 use App\Entity\Produit;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,6 +26,16 @@ class AdminController extends AbstractController
 
         return $this->render('admin/produit/index.html.twig', [
             'lesProduits' => $lesProduits
+        ]);
+    }
+
+    #[Route('/categorie', name: 'categorie')]
+    public function listeCategories(EntityManagerInterface $entityManager): Response
+    {
+        $categories = $entityManager->getRepository(Categorie::class)->findAll();
+
+        return $this->render('admin/categorie/index.html.twig', [
+            'categories' => $categories,
         ]);
     }
 }

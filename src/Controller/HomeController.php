@@ -14,19 +14,20 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(CategorieRepository $categorieRepository): Response
     {
+        $categorie = $categorieRepository->findAll();
         return $this->render('home/index.html.twig', [
-            'categories' => $categorieRepository->findAll(),
+            'categories' => $categorie,
         ]);
     }
 
-    // #[Route('/listeCategories', name: 'liste_categories')]
-    // public function listeCategories(EntityManagerInterface $entityManager): Response
+    // public function index(): Response
     // {
-    //     // Récupérer toutes les catégories depuis la base de données
-    //     $categories = $entityManager->getRepository(Categorie::class)->findAll();
-
-    //     return $this->render('categorie/liste_categories.html.twig', [
-    //         'categories' => $categories,
+    //     $entityManager = $this->getDoctrine()->getManager();
+    //     $repo = $entityManager->getRepository(Categorie::class);
+    //     $categorie = $repo->findAll();
+    //     return $this->render('home/index.html.twig', [
+    //         'categories' => $categorie,
     //     ]);
     // }
+
 }

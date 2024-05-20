@@ -7,9 +7,9 @@
                 <div class="row align-items-center">
                     <div class="col-sm-12 col-md-6">
                         <div class="hero-text">
-                            <h1>Yoga Practice For Good Health</h1>
+                            <h1>DESERVE TO BE BEAUTIFUL</h1>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasell nec pretum mi. Curabi ornare velit non. Aliqua metus tortor auctor quis sem.
+                                Self care starts with with skin care 
                             </p>
                             <div class="hero-btn">
                                 <a class="btn" href="">Join Now</a>
@@ -19,7 +19,7 @@
                     </div>
                     <div class="col-sm-12 col-md-6 d-none d-md-block">
                         <div class="hero-image">
-                            <img src="images/hero.png" alt="Hero Image">
+                            <img src="images/home2.png" alt="Hero Image">
                         </div>
                     </div>
                 </div>
@@ -34,21 +34,20 @@
                 <div class="row align-items-center">
                     <div class="col-lg-5 col-md-6">
                         <div class="about-img">
-                            <img src="images/about.png" alt="Image">
+                            <img src="images/foam.png" alt="Image">
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-6">
                         <div class="section-header text-left">
                             <p>Learn About Us</p>
-                            <h2>Welcome to Yooga</h2>
+                            <h2>Welcome to LAHWA</h2>
                         </div>
                         <div class="about-text">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                            </p>
+
+                                Welcome to LAHWA, where beauty meets affordability. Our website is your go-to destination for quality skincare without breaking the bank. Experience the luxury of radiant skin at prices that make self-care accessible for everyone.</p>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus.
-                            </p>
+                                LAHWA is committed to delivering effective, budget-friendly solutions, ensuring that your journey to glowing skin is not only transformative but also affordable. Discover skincare that fits your lifestyle and budget – because beauty should be within reach for all.</p>
                             <a class="btn" href="">Learn More</a>
                         </div>
                     </div>
@@ -62,16 +61,17 @@
         <div class="service">
             <div class="container">
                 <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                    <p>What we do</p>
-                    <h2>Yoga For Health</h2>
+                    <p>Our Categories</p>
+                    <h2>Spoil your skin</h2>
                 </div>
                 <div class="row">
                 {% for categorie in categories %}
                     
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="service-item">
-                            <div class="service-icon">
-                                <i class="flaticon-workout"></i>
+                            <div>
+                                <img src="images/products.png" style="width:80px;height:80px" alt="Image">
+                                {# <i class="flaticon-workout"></i> #}
                             </div>
                             <h3>
                             <a href="{{ path('categorie_show', {'id': categorie.id}) }}" >{{ categorie.nom }}</a>

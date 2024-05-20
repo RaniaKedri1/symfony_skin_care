@@ -283,17 +283,17 @@
 
     .hero .hero-image {
         position: relative;
-        text-align: right;
+       text-align: right;
     }
 
     .hero .hero-image img {
-        max-width: 80%;
-        max-height: 80%;
+        max-width: 150%;
+        max-height: 150%;
     }
 
     .hero .hero-text {
         position: relative;
-        padding-left: 75px;
+        padding-left:100px;
         display: flex;
         align-items: flex-start;
         justify-content: center;
@@ -309,7 +309,7 @@
 
     .hero .hero-text p {
         color: #343148;
-        font-size: 18px;
+        font-size: 30px;
         margin-bottom: 25px;
     }
 
@@ -603,7 +603,7 @@
         animation: pulse-border 2000ms ease-out infinite;
     }
 
-    .service .service-icon:after {
+    .service .service-icon:after {   
         content: "";
         position: absolute;
         z-index: 1;
@@ -1897,7 +1897,7 @@
 
     .footer .container-fluid {
         padding: 90px 0 0 0;
-        background: linear-gradient(rgba(52, 49, 72, .9), rgba(52, 49, 72, .9)), url(../images/footer-bg.png);
+        background: linear-gradient(rgba(52, 49, 72, .9), rgba(52, 49, 72, .9)), url(../images/footer.jpg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;

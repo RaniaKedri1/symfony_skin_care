@@ -16,21 +16,21 @@ use App\Repository\CategorieRepository;
 #[Route('/categorie', name: 'categorie_')]
 class CategorieController extends AbstractController
 {
-    #[Route('/', name: 'index')]
-    public function listeCategories(EntityManagerInterface $entityManager): Response
-    {
-        $categories = $entityManager->getRepository(Categorie::class)->findAll();
+    // #[Route('/', name: 'index')]
+    // public function index(EntityManagerInterface $entityManager): Response
+    // {
+    //     $categories = $entityManager->getRepository(Categorie::class)->findAll();
 
-        return $this->render('categorie/index.html.twig', [
-            'categories' => $categories,
-        ]);
-    }
+    //     return $this->render('categorie/index.html.twig', [
+    //         'categories' => $categories,
+    //     ]);
+    // }
 
 
     #[Route('/categorie/{id}', name: 'show')]
     public function show(Categorie $categorie): Response
     {
-        return $this->render('categorie/show.html.twig', [
+        return $this->render('admin/categorie/show.html.twig', [
             'categorie' => $categorie,
         ]);
     }
@@ -46,9 +46,9 @@ class CategorieController extends AbstractController
             $entityManager->persist($categorie);
             $entityManager->flush();
             $this->addFlash('notice', 'Catégorie ajoutée avec succès.');
-            return $this->redirectToRoute('categorie_index');
+            return $this->redirectToRoute('app_categorie');
         }
-        return $this->render('categorie/ajouter_categorie.html.twig', [
+        return $this->render('admin/categorie/ajouter_categorie.html.twig', [
             'form' => $form->createView(),
         ]);
     }
@@ -63,10 +63,10 @@ class CategorieController extends AbstractController
             
             $entityManager->flush();
             $this->addFlash('success', 'Category edited successfully');
-            return $this->redirectToRoute('categorie_index');
+            return $this->redirectToRoute('app_categorie');
         }
 
-        return $this->render('categorie/edit.html.twig', [
+        return $this->render('admin/categorie/edit.html.twig', [
             'categorie' => $categorie,
             'form' => $form,
         ]);
@@ -82,7 +82,7 @@ public function deletecategorie(CategorieRepository $categorieRepository, Entity
     $entityManager->remove($cat);
     $entityManager->flush();
     $this->addFlash('success', 'Category deleted successfully');
-    return $this->redirectToRoute('categorie_index');
+    return $this->redirectToRoute('app_categorie');
 }
 
 }

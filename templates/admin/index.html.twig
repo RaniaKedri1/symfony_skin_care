@@ -1,8 +1,23 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Hello AdminController!{% endblock %}
-
 {% block body %}
-    <h1> admin </h1>
+         <!-- Page Header Start -->
+        <div class="page-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Admin interface</h2>
+                    </div>
+                    <div class="col-12">
+                        <a href="">Home</a>
+                        <a href="">Admin</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+        <div class="container mt-5 mb-5">
+                        <a href="{{ path('app_produit') }}" class="nav-item nav-link">Gestion de produit</a>
+                        <a href="{{ path('app_categorie') }}" class="nav-item nav-link">Gestion de categorie</a>
+        </div>
 {% endblock %}
-    

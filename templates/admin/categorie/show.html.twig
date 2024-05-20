@@ -17,8 +17,8 @@
                                 {% for produit in categorie.produits %}
                                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                                     <div class="service-item">
-                                        <div class="service-icon">
-                                            <i class="flaticon-workout"></i>
+                                        <div>
+                                            <img src="{{ vich_uploader_asset(produit, 'imageFile') }}" alt="Hero Image" width="100" height:"100">
                                         </div>
                                         <a href="{{ path('app_produit_show', {id: produit.id}) }}">
                                         <h3>{{ produit.libelle }}</h3></a>

@@ -24,7 +24,7 @@ class ProduitController extends AbstractController
         return $this->render('produit/index.html.twig', ['lesProduits' => $lesProduits]);
     }
 
-    #[Route('/ajouter', name: 'app_produit_ajouter')]
+    #[Route('/admin/produit/ajouter', name: 'app_produit_ajouter')]
     public function ajouter(Request $request, EntityManagerInterface $entityManager): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) {
@@ -38,7 +38,7 @@ class ProduitController extends AbstractController
             $entityManager->persist($produit);
             $entityManager->flush();
             $this->addFlash('success', 'Product added successfully');
-            return $this->redirectToRoute('listProduit');
+            return $this->redirectToRoute('app_produit');
         }
 
         return $this->render('admin/produit/new.html.twig', [
@@ -59,7 +59,7 @@ class ProduitController extends AbstractController
         ]);
     }
     
-    #[Route('/edit/{id}', name: 'app_produit_edit')]
+    #[Route('/admin/produit/edit/{id}', name: 'app_produit_edit')]
     public function edit(Request $request, Produit $produit, EntityManagerInterface $entityManager): Response
     {
         
